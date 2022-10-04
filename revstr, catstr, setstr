@@ -1,0 +1,67 @@
+
+#include <stdio.h>
+#include <string.h>
+
+void revstr(char* str1)  {  
+    int i, len, temp;  
+    len = strlen(str1); 
+    
+    for (i = 0; i < len/2; i++)  {  
+        temp = str1[i];  
+        str1[i] = str1[len - i - 1];  
+        str1[len - i - 1] = temp;  
+    }  
+} 
+
+void catstr(char* str, char* str1)
+{
+    int i;
+  
+    int j = strlen(str1);
+  
+    for (i = 0; str1[i] != '\0'; i++) {
+        str[i + j] = str1[i];
+    }
+  
+    str[i + j] = '\0';
+}
+
+void setstr(char* str, char chr) {
+    int i;
+    for (i = 0; str[i] != "\0"; i++) {
+        str[i] = chr;
+    }
+}
+
+int main()
+{
+    // test revstr function
+    //   char str[50];
+    //     printf ("Enter the string: ");  
+    //     gets(str); 
+          
+    //     printf ("\n Before reversing the string: %s \n", str);  
+            
+    //     revstr(str);  
+    //     printf (" After reversing the string: %s", str); 
+        
+    // test strcat function
+        // char str[1000], str1[1000];
+        // printf("Enter the first string: ");
+        // gets(str);
+        
+        // printf("Enter the second string: ");
+        // gets(str1);
+        
+        // strcat(str, str1);
+        // printf("Concatenated String: '%s'\n", str);
+        
+    // test setstr function
+        // char str[500], ch;
+        // printf("Enter a string: ");
+        // gets(str);
+        
+        // setstr(str, "#");
+        // printf("String: '%s'\n", str);
+        
+}
