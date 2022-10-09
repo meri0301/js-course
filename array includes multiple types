@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+enum ElementType {int_type, bool_type, double_type};
+struct Element {
+    ElementType type;
+    union {
+        int i;
+        bool b;
+        double d;
+    };
+};
+        
+int main()
+{
+    
+    struct Element *arr = malloc(sizeof(struct Element) * 3);
+    arr[0].type = int_type;
+    arr[0].i = 3;
+    arr[1].type = bool_type;
+    arr[1].b = true;
+    arr[2].type = double_type;
+    arr[2].d = 3.01;
+    
+    for (int i = 0; i < 3; ++i) {
+        if (arr[i] == int_type) {
+            printf("Integer: %d\n", arr[i].i); 
+        }
+        if (arr[i] == bool_type) {
+            printf("Boolen: %s\n", arr[i].b);
+        }
+        if (arr[i] == double_type) {
+            printf("Double: %f\n", arr[i].d);
+        }
+    }
+    
+    free(arr);
+}
